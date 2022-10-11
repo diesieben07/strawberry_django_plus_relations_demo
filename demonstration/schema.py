@@ -1,6 +1,7 @@
 from strawberry_django_plus import gql
 import typing as tp
 from . import models
+from .optimizer_monkeypatch import gql_django_optimize_relations
 
 
 @gql.django.type(models.ModelA)
@@ -25,6 +26,7 @@ AOrB = gql.union('AOrB', types=(TypeA, TypeB))
 @gql.django.type(models.HasRelations)
 class HasRelationsType:
     @staticmethod
+    @gql_django_optimize_relations(('ref_a', 'ref_b'))
     @gql.django.field(select_related=('ref_a', 'ref_b'), only=('ref_a', 'ref_b', 'ref_a__id', 'ref_b__id'))
     def ref(root: models.HasRelations) -> AOrB | None:
         return root.ref_a or root.ref_b

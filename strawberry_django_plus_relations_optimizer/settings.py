@@ -30,6 +30,8 @@ INTERNAL_IPS = [
     '127.0.0.1'
 ]
 
+MONKEYPATCH_OPTIMIZER = False
+
 # Application definition
 
 INSTALLED_APPS = [
