@@ -27,7 +27,7 @@ SELECT "demonstration_hasrelations"."id",
   LEFT OUTER JOIN "demonstration_modelb"
     ON ("demonstration_hasrelations"."ref_b_id" = "demonstration_modelb"."id");
 
--- The following query runs 3 times!
+-- The following query runs n times, with n being the count of the outer model (`HasRelations`)
 
 SELECT "demonstration_modela"."id",
        "demonstration_modela"."name_a"
