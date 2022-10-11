@@ -58,6 +58,6 @@ SELECT "demonstration_hasrelations"."id",
 ```
 
 `MONKEYPATCH_OPTIMIZER` can be set to `True` in `settings.py` to enable monkeypatching strawberry-django-plus with a solution.
-If enabled, the first query is opimized just like the first one, even without the manual specification of `select_related` and `only` on `refA`.
+If enabled, the first query is opimized just like the second one, even without the manual specification of `select_related` and `only` on `refA`.
 
 The patch can be found here: https://github.com/blb-ventures/strawberry-django-plus/compare/main...diesieben07:strawberry-django-plus:feature/optimize-relations
